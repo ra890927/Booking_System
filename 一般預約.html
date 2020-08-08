@@ -33,12 +33,12 @@
                 text-align: center;
             }
 
-            .Form-title{
+            .Form_title{
                 margin-bottom: 3px;
                 text-align: left;
             }
 
-            .Input-wrapper{
+            .Input_wrapper{
                 background: #fff;
                 padding: 11px;
                 border: 1px solid #b1b1b1;
@@ -47,7 +47,6 @@
                 height: 64px;
             }
         </style>
-        <style type="text/javascript"></style>
     </head>
 
     <body>
@@ -62,15 +61,41 @@
         <form>
             <div class="container">
                 <div class="row">
-                    <div style="display: block;">
+                    <div class="col-3" style="margin: 0px auto;">
                         <div class="Form_title">
-                            <label for="startStation" type="text" name="startStation" title="地點">地點</label>
+                            <label for="Location" type="text" name="Location" title="地點">地點</label>
                         </div>
 
-                        <div class="Input-wrapper">
-                            <input id="startStation" type="text" name="startStation">
+                        <div class="Input_wrapper">
+                            <input id="Location" type="text" name="Location">
                             <button type="button" class="btn btn-default">
-                                <span class="glyphicon glyphicon-th-list" style="text-align: center;"></span>
+                                <span class="glyphicon glyphicon-th-list"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-3" style="margin: 0px auto;">
+                        <div class="Form_title">
+                            <label for="Time" type="text" name="Time" title="時間">時間</label>
+                        </div>
+
+                        <div class="Input_wrapper">
+                            <input id="Time" type="text" name="Time">
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-th-list"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-3" style="margin: 0px auto;">
+                        <div class="Form_title">
+                            <label for="Number" type="text" name="Number" title="人數">人數</label>
+                        </div>
+
+                        <div class="Input_wrapper">
+                            <input id="Number" type="text" name="Number">
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-th-list"></span>
                             </button>
                         </div>
                     </div>
