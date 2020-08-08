@@ -1,0 +1,24 @@
+.Reservation{
+    position: relative;
+    text-align: center;
+    margin: auto 0px;
+}
+
+.Reservation_text{
+    position: absolute;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 1.6cm;
+    color: white;
+    top: 120px;
+    left: 170px;
+    /*-webkit-text-stroke: gray 1px;*/
+}
+
+.Office_status{
+    text-align: center;
+    /*-webkit-text-stroke: grey 1px;*/
+    color: gray;
+    font-weight: bolder;
+    
+}
