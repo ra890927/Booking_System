@@ -11,6 +11,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
         <script type="text/javascript">
             function add_location($loc){
                 document.getElementById("Location").value = $loc;
@@ -19,6 +23,18 @@
             function add_number($num){
                 document.getElementById("Number").value = $num;
             }
+
+            $(function(){
+                $('#Date').datepicker({
+                    dateFormat: "yy/mm/dd"
+                });
+            });
+
+            $(function() {
+                $("#datepicker").click(function() {
+                    $('#Date').datepicker().datepicker( "show" )
+                });
+            });
         </script>
 
         <style>
@@ -137,7 +153,7 @@
                             <label for="Date" type="text" name="Date" title="日期" class="Label_text">日期</label>
                         </div>
 
-                        <div class="Input_wrapper">
+                        <div class="Input_wrapper" id="datepicker">
                             <input id="Date" type="text" name="Date" placeholder="YYYY/MM/DD" style="margin: 5px;">
                             <button type="button" class="btn btn-default" style="display: flex; align-items: center;">
                                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-calendar-date" xmlns="http://www.w3.org/2000/svg">
