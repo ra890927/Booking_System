@@ -1,7 +1,7 @@
 <?php
 # CHECK PWD #
 session_start();
-    $link = mysqli_connect('localhost','root','Leo@12345','users');
+    $link = mysqli_connect('localhost',$db_account, $db_password,'users');
     $account = $_POST["account"];
     $sql = "SELECT * FROM users WHERE account = '$account'";
     $result = mysqli_query($link, $sql);
