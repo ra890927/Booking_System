@@ -43,7 +43,7 @@
                         echo '</td>';
                     }
                     echo '<td>';
-                    echo '<button class="btn btn-secondary">modify</button>';
+                    echo '<button class="btn btn-secondary">delete</button>';
                     echo '</td>';
                     echo '</tr>';
                 }

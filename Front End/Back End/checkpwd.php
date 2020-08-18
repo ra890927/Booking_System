@@ -17,7 +17,7 @@ if($_POST['password'] == $row[2]){
         header("location: " . $_GET['ret']);  
     }
     else{
-        header("location: ../index.php");
+        header("location: ../");
     }
     exit();
 }
