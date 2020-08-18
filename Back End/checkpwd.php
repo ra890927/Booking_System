@@ -2,7 +2,7 @@
 include "../conf.php"; 
 # CHECK PWD #
 session_start();
-    $link = mysqli_connect('localhost',$DB_ACC, $DB_PASSWD, 'users');
+    $link = mysqli_connect($DB_NAME,$DB_ACC, $DB_PASSWD, 'users');
     $account = $_POST["account"];
     $sql = "SELECT * FROM users WHERE account = '$account'";
     $result = mysqli_query($link, $sql);
@@ -13,7 +13,12 @@ if($_POST['password'] == $row[2]){
     mysqli_close($link);
     $_SESSION['account'] = $_POST['account'];
     $_SESSION['user_id'] = $row[0];
-    header("location: " . $_GET['ret']);  
+    if($_GET['ret'] != ''){
+        header("location: " . $_GET['ret']);  
+    }
+    else{
+        header("location: ../index.php");
+    }
     exit();
 }
 else{

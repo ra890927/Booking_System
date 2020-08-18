@@ -24,8 +24,8 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
-        <link rel="stylesheet" href="css.css">
-        <script src="function.js"></script>
+        <link rel="stylesheet" href="/css/css.css">
+        <script src="/js/function.js"></script>
 
         <style>
             #header{
@@ -166,7 +166,7 @@
                 $Time_to = date("H:i:s", strtotime($_POST['Time_to']));
 
                 
-                $con = mysqli_connect("localhost", $DB_ACC , $DB_PASSWD , "schedule");
+                $con = mysqli_connect($DB_NAME, $DB_ACC , $DB_PASSWD , "schedule");
 
                 $sql_command = "SELECT * FROM `$Location` WHERE 
                 (CAST(s_begin as date) = ' $Date ' OR 
