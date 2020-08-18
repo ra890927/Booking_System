@@ -1,16 +1,15 @@
 <!-- 修改between -->
 
 <!-- request format post {date, from, to, title}-->
-<?php include "../conf.php"; ?>
 <?php
     session_start();
     if ( empty( $_SESSION["account"] ) ){
         header("Location:login.php");
         exit(); 
     }
-?>
-<?php
-include("db.php");
+    
+include "../conf.php";
+include "db.php";
 #CONNECT DB#
     $con = mysqli_connect("localhost", $DB_ACC, $DB_PASSWD, "schedule");
     if (mysqli_connect_errno($con))  

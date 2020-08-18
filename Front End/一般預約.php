@@ -1,5 +1,12 @@
+<?php
+    session_start();
+    if (empty($_SESSION["account"])){
+        header("Location:login.php?ret=ㄧ般預約.php"); 
+        exit();
+    }
+?>
 <!DOCTYPE html>
-<?php include "../conf.php"; ?>
+<?php include "conf.php"; ?>
 <html>
     <head>
         <meta charset="UTF-8">
