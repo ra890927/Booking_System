@@ -157,7 +157,7 @@
                 $Time_to = date("H:i:s", strtotime($_POST['Time_to']));
 
                 
-                $con = mysqli_connect("localhost", "root", "root", "schedule");
+            $con = mysqli_connect("localhost", $db_acc, $db_passwd, "schedule");
                 $sql_command = "SELECT * FROM `$Location` WHERE 
                 (CAST(s_begin as date) = ' $Date ' OR 
                  CAST(s_end   as date) = ' $Date '   ) AND
