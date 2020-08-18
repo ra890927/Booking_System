@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "../conf.php"; ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -158,7 +159,7 @@
                 $Time_to = date("H:i:s", strtotime($_POST['Time_to']));
 
                 
-                $con = mysqli_connect("localhost", getenv("DB_ACC") , getenv("DB_PASSWD") , "schedule");
+                $con = mysqli_connect("localhost", $DB_ACC , $DB_PASSWD , "schedule");
 
                 $sql_command = "SELECT * FROM `$Location` WHERE 
                 (CAST(s_begin as date) = ' $Date ' OR 

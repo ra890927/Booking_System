@@ -5,6 +5,7 @@
         exit();
     }
 ?>
+<?php include "../conf.php"; ?>
 <!doctype html>
 <html>
     <head>
@@ -29,7 +30,6 @@
             }
             .center {
                 margin: 0px auto;
-                align: center;
             }
 
         </style>
@@ -80,7 +80,7 @@
                         
                     <?php 
                         if( $_GET['date'] != '' && $_GET['room'] != ''){
-                            $con = mysqli_connect("localhost", getenv("DB_ACC"), getenv("DB_PASSWD"), "schedule");
+                            $con = mysqli_connect("localhost", $DB_ACC, $DB_PASSWD, "schedule");
                             $sql_command = "SELECT * FROM `" . $_GET['room'] . "` WHERE CAST(s_begin as date) = \"" .$_GET['date']. "\" OR CAST(s_end as date) = \"" . $_GET['date'] . "\";" ;
                             $result = mysqli_query($con, $sql_command);
                             $data = mysqli_fetch_all($result);
