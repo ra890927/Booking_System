@@ -5,6 +5,7 @@
         exit();
     }
 ?>
+
 <!doctype html>
 <?php include "../conf.php"; ?>
 <html>
@@ -26,29 +27,29 @@
             </tr>
             </thead>
             <tbody>
-        <?php
-            $con = mysqli_connect("localhost", $DB_ACC, $DB_PASSWD, "schedule");
+            <?php
+                $con = mysqli_connect("localhost", $DB_ACC, $DB_PASSWD, "schedule");
 
-            $sql_command = "SELECT * FROM `Room 1` WHERE user_id =  " . $_SESSION['user_id'] . ";";
+                $sql_command = "SELECT * FROM `Room 1` WHERE user_id =  " . $_SESSION['user_id'] . ";";
 
-            $result = mysqli_query($con, $sql_command);
-            $data = mysqli_fetch_all($result);
-            
-            for($i = 0; $i < count($data); $i++){
-                echo '<tr>';
-                for($j = 0; $j < 3; $j++){
+                $result = mysqli_query($con, $sql_command);
+                $data = mysqli_fetch_all($result);
+                
+                for($i = 0; $i < count($data); $i++){
+                    echo '<tr>';
+                    for($j = 0; $j < 3; $j++){
+                        echo '<td>';
+                        echo( $data[$i][$j] );
+                        echo '</td>';
+                    }
                     echo '<td>';
-                    echo( $data[$i][$j] );
+                    echo '<button class="btn btn-secondary">modify</button>';
                     echo '</td>';
+                    echo '</tr>';
                 }
-                echo '<td>';
-                echo '<button class="btn btn-secondary">modify</button>';
-                echo '</td>';
-                echo '</tr>';
-            }
-            
-            mysqli_close($con);
-        ?>
+                
+                mysqli_close($con);
+            ?>
             </tbody>
         </table>
         </div>
