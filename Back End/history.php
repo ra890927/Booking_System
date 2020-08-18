@@ -26,7 +26,7 @@
             </thead>
             <tbody>
         <?php
-            $con = mysqli_connect("localhost", $db_account, $db_password, "schedule");
+            $con = mysqli_connect("localhost", getenv("DB_ACC"), getenv("DB_PASSWD"), "schedule");
 
             $sql_command = "SELECT * FROM `Room 1` WHERE user_id =  " . $_SESSION['user_id'] . ";";
 

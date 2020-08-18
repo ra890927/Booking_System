@@ -149,6 +149,7 @@
             </div>
         </form>
         <?php
+
             if( $_POST['Location'] != '' && $_POST['Date'] != ''){
                 $Location = $_POST['Location'];
                 $Date = date("Y-m-d",strtotime($_POST['Date']));
@@ -157,7 +158,8 @@
                 $Time_to = date("H:i:s", strtotime($_POST['Time_to']));
 
                 
-            $con = mysqli_connect("localhost", $db_acc, $db_passwd, "schedule");
+                $con = mysqli_connect("localhost", getenv("DB_ACC") , getenv("DB_PASSWD") , "schedule");
+
                 $sql_command = "SELECT * FROM `$Location` WHERE 
                 (CAST(s_begin as date) = ' $Date ' OR 
                  CAST(s_end   as date) = ' $Date '   ) AND
