@@ -13,7 +13,12 @@ if($_POST['password'] == $row[2]){
     mysqli_close($link);
     $_SESSION['account'] = $_POST['account'];
     $_SESSION['user_id'] = $row[0];
-    header("location: " . $_GET['ret']);  
+    if($_GET['ret'] != ''){
+        header("location: " . $_GET['ret']);  
+    }
+    else{
+        header("location: ../index.php");
+    }
     exit();
 }
 else{
