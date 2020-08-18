@@ -2,7 +2,7 @@
 include "../conf.php"; 
 # CHECK PWD #
 session_start();
-    $link = mysqli_connect('localhost',$DB_ACC, $DB_PASSWD, 'users');
+    $link = mysqli_connect($DB_NAME,$DB_ACC, $DB_PASSWD, 'users');
     $account = $_POST["account"];
     $sql = "SELECT * FROM users WHERE account = '$account'";
     $result = mysqli_query($link, $sql);

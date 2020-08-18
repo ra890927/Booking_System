@@ -7,7 +7,7 @@ return: empty time slot
 <?php
 include(db.php);
 # CONNECT DB #
-    $con = mysqli_connect("localhost", $DB_ACC, $DB_PASSWD, "schedule");
+    $con = mysqli_connect($DB_NAME, $DB_ACC, $DB_PASSWD, "schedule");
     if (mysqli_connect_errno($con))  
     {  
         echo "连接 MySQL 失败: " . mysqli_connect_error();  
