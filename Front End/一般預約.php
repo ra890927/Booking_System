@@ -39,8 +39,9 @@
     </head>
 
     <body>
-        <nav class="navbar nav-dark bg-primary" style="border: solid 1px black">
-            <div class="navbar-band" style="position: absolute; left: calc(50% - 90px); width: 180px; padding: 10px; color: white;"><h1>一般預約</h1></div>
+        <!--標題跟按鈕-->
+        <nav class="navbar nav-dark bg-primary">
+            <div class="Normal_navbar"><h1>一般預約</h1></div>
 
             &nbsp;
             <div>
@@ -55,15 +56,18 @@
             </div>-->
         </nav>
 
+        <!--bar-->
         <div class="container">
             <div class="row">
                 <div class="col Space"></div>
             </div>
         </div>
 
+        <!--預約選單-->
         <form action="一般預約.php" method="POST">
             <div class="container" style="border: solid 1px gray; text-align: center;">
                 <div class="row">
+                    <!--地點-->
                     <div class="col-3 form-group">
                         <div style="text-align: left;">
                             <label for="Location" type="text" name="Location" title="地點" class="Label_text">地點</label>
@@ -87,6 +91,7 @@
                         </div>
                     </div>
 
+                    <!--人數-->
                     <div class="col-3 form-group">
                         <div style="text-align: left;">
                             <label for="Number" type="text" name="Number" title="人數" class="Label_text">人數</label>
@@ -115,6 +120,7 @@
                         </div>
                     </div>
 
+                    <!--日期-->
                     <div class="col-3 form-group">
                         <div style="text-align: left;">
                             <label for="Date" type="text" name="Date" title="日期" class="Label_text">日期</label>
@@ -132,6 +138,7 @@
                         </div>
                     </div>
 
+                    <!--時間-->
                     <div class="col-3 form-group">
                         <div style="text-align: left;">
                             <label for="Time" type="text" name="Time" title="時間" class="Label_text">時間</label>
