@@ -3,8 +3,8 @@ include "../conf.php";
 # CHECK PWD #
 session_start();
     $link = mysqli_connect($DB_NAME,$DB_ACC, $DB_PASSWD, 'users');
-    $account = $_POST["account"];
-    $sql = "SELECT * FROM users WHERE account = '$account'";
+    $account = mysqli_real_escape_string($link, $_POST["account"]);
+    $sql = "SELECT * FROM users WHERE account = '$account';";
     $result = mysqli_query($link, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_NUM);
     

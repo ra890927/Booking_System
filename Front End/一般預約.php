@@ -44,14 +44,16 @@
             <div class="Normal_navbar"><h1>一般預約</h1></div>
 
             &nbsp;
-            <!--<div>
-                <button type="button" class="btn btn-outline-info" style="color: white;">登出</button>
-                <button type="button" class="btn btn-outline-info" style="color: white;">預約紀錄</button>
-            </div>-->
-
             <div>
-                <button type="button" class="btn btn-outline-dark" style="color: white;">登入</button>
+                <label style=""><font color="#FFFFFF"><?php echo $_SESSION['account']?>   </font></label>
+                
+                <button type="button" class="btn btn-outline-info" style="color: white;" onclick="location.href='logout.php'">登出</button>
+                <button type="button" class="btn btn-outline-info" style="color: white;" onclick="location.href='Back End/history.php'">預約紀錄</button>
             </div>
+
+            <!--<div>
+                <button type="button" class="btn btn-outline-dark" style="color: white;">登入</button>
+            </div>-->
         </nav>
 
         <!--bar-->
