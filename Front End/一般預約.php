@@ -196,7 +196,6 @@
                     echo $data[$i][0];
                     echo '<br>';
                 }
-
             }
         ?>
     </body>
