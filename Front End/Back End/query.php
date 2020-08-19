@@ -3,9 +3,10 @@ filter: people, begin, end, lasttime, room
 return: empty time slot
 -->
 
-<?php include "../conf.php"; ?>
-<?php
-include(db.php);
+<?php 
+include "../conf.php"; 
+include "db.php";
+
 # CONNECT DB #
     $con = mysqli_connect($DB_NAME, $DB_ACC, $DB_PASSWD, "schedule");
     if (mysqli_connect_errno($con))  

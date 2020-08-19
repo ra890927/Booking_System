@@ -1,6 +1,6 @@
-<!-- 修改between -->
-
 <!-- request format post {date, from, to, title}-->
+<!-- {user_id} -->
+
 <?php
     session_start();
     if ( empty( $_SESSION["account"] ) ){
@@ -11,21 +11,20 @@
 include "../conf.php";
 include "db.php";
 #CONNECT DB#
-    $con = mysqli_connect("localhost", $DB_ACC, $DB_PASSWD, "schedule");
+    $con = mysqli_connect($DB_NAME, $DB_ACC, $DB_PASSWD, "schedule");
     if (mysqli_connect_errno($con))  
     {  
         echo "连接 MySQL 失败: " . mysqli_connect_error();  
     }  
 
 #RECEIVE POST DATA#
-    ###HTTP Post data ( SQL format data -> "data" )
+    ###HTTP Post data ( start = date + from )
     $p_date  = date('Y-m-d',strtotime($_POST['date']));
     $p_start = date("Y-m-d",strtotime($_POST['date'])) . " " . $_POST['from'] ;
     $p_end   = date("Y-m-d",strtotime($_POST['date'])) . " " . $_POST['to']   ;
     $p_title = $_POST['title'];
     $p_room  = "`" . $_POST['room'] . "`";
     $user_id = $_SESSION['user_id'];
-    //echo $p_room;
 
 #CHECK#
     ###檢查時間合理性

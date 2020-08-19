@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (empty($_SESSION["account"])){
-        header("Location:login.php"); 
+        header("Location:../login.php"); 
         exit();
     }
 ?>
@@ -39,7 +39,7 @@
     <body bgcolor="white">
         <nav class="navbar navbar-light bg-dark">
             <a class="navbar-brand text-light" href="./">會議室預約系統</a>
-            <form class="form-inline" action="logout.php">
+            <form class="form-inline" action="../logout.php">
                 <input type="button" class="btn btn-outline-primary" onclick="javascript:location.href='history.php'" value="預約紀錄"></input>
                 &nbsp
                 <input class="btn btn-outline-primary" type="submit" value="登出">
