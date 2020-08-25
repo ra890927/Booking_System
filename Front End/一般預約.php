@@ -185,24 +185,59 @@
                 $Number = $_POST['Number'];
                 $Time_from = date("H:i:s",strtotime($_POST['Time_from']));
                 $Time_to = date("H:i:s", strtotime($_POST['Time_to']));
-
+                $Date_from = date("Y-m-d", strtotime($Date . " Monday this week"));
+                $Date_to = date("Y-m-d", strtotime($Date . " Sunday this week"));
                 
                 $con = mysqli_connect($DB_NAME, $DB_ACC , $DB_PASSWD , "schedule");
 
-                $sql_command = "SELECT * FROM `$Location` WHERE 
-                (CAST(s_begin as date) = ' $Date ' OR 
-                 CAST(s_end   as date) = ' $Date '   ) AND
-                ((s_begin <= ' $Date $Time_to   ' AND s_begin >= ' $Date $Time_from ') OR
-                 (s_end   >= ' $Date $Time_from ' AND s_end <= ' $Date $Time_to '))" ;
+                $sql_command = "SELECT s_begin, s_end, title, TIMESTAMPDIFF(hour, s_begin, s_end), WEEKDAY(s_begin) FROM `$Location` WHERE 
+                (CAST(s_begin as date) >= ' $Date_from ' AND CAST(s_begin as date) <= ' $Date_to ') OR
+                (CAST(s_end   as date) <= ' $Date_from ' AND CAST(s_end   as date) >= ' $Date_to ') 
+                ORDER BY s_begin ASC;";
                 
                 $result = mysqli_query($con, $sql_command);
                 $data = mysqli_fetch_all($result);
-                #print_r($data);
-
-                for($i = 0; $i < count($data); $i++){
-                    echo $data[$i][0];
-                    echo '<br>';
+                $d_array = [[],[],[],[],[],[],[]];
+                
+                for($i = 0; $i < count($data); $i ++){
+                    array_push($d_array[$data[$i][4]], $data[$i]);
                 }
+
+                
+                echo '
+                <h1 id="header">課表</h1>
+
+                <div class="container">
+                    <table style="width: 100%;" border="1">
+                        <tr style="height: 50px;">
+                            <th class="Schedule_date">時間</th>
+                            <th class="Schedule_date">星期一</th>
+                            <th class="Schedule_date">星期二</th>
+                            <th class="Schedule_date">星期三</th>
+                            <th class="Schedule_date">星期四</th>
+                            <th class="Schedule_date">星期五</th>
+                            <th class="Schedule_date">星期六</th>
+                            <th class="Schedule_date">星期日</th>
+                        </tr>
+                ';
+                #{[s_begin,s_end,diff,title],[],[],....}
+
+                for($t = 8; $t < 18; $t++){
+                    echo '<tr style="height:50px;">';
+                    printf( "<td>%02d:00~%02d:00</td>", $t, $t+1 );
+                    for($d = 0; $d < 7; $d++){
+                        if($d_array[$d] != [] && date("h", strtotime($d_array[$d][0][0])) == $t){
+                            echo '<td class="special" rowspan="'. $d_array[$d][0][3] .'">' . $d_array[$d][0][2] . '</td>';
+                            array_shift($d_array[$d]);
+                        }
+                        else{
+                            echo '<td rowspan="1"></td>';
+                        }
+                    }
+                    echo '</tr>';
+                }
+                echo '</table>
+                </div>';
             }
         ?>
     </body>
